@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DecimalInput</string>
+    <string name="orginal_integers_decimals">原始小数输入框</string>
+    <string name="arbitrary_integers_decimals">不限制整数位数和小数位数</string>
+    <string name="arbitrary_integers_limit_decimals">不限制整数位数,限制小数位数</string>
+    <string name="limit_integers_arbitrary_decimals">限制整数位数,不限制小数位数</string>
+    <string name="limit_integers_limit_decimals">既限制整数位数又限制小数位数</string>
+</resources>

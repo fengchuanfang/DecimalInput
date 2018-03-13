@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="input_disabled_edit">#dbdbdb</color>
+    <color name="input_stroke_blue">#7393D5</color>
+    <color name="input_stroke_grey">#979797</color>
+    <color name="input_solid_white">#FFFFFF</color>
+</resources>
