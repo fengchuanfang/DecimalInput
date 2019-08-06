@@ -16,14 +16,12 @@ import java.util.regex.Pattern;
  */
 
 public class DecimalInputTextWatcher implements TextWatcher {
-    private final EditText mDecimalInputEt;
     private Pattern mPattern;
 
     /**
      * 不限制整数位数和小数位数
      */
-    public DecimalInputTextWatcher(EditText decimalInputEt) {
-        mDecimalInputEt = decimalInputEt;
+    public DecimalInputTextWatcher() {
     }
 
     /**
@@ -32,8 +30,7 @@ public class DecimalInputTextWatcher implements TextWatcher {
      * @param type   限制类型
      * @param number 限制位数
      */
-    public DecimalInputTextWatcher(EditText decimalInputEt, Type type, int number) {
-        mDecimalInputEt = decimalInputEt;
+    public DecimalInputTextWatcher(Type type, int number) {
         if (type == Type.decimal) {
             mPattern = Pattern.compile("^[0-9]+(\\.[0-9]{0," + number + "})?$");
         } else if (type == Type.integer) {
@@ -48,8 +45,7 @@ public class DecimalInputTextWatcher implements TextWatcher {
      * @param decimals 小数位数
      */
 
-    public DecimalInputTextWatcher(EditText decimalInputEt, int integers, int decimals) {
-        mDecimalInputEt = decimalInputEt;
+    public DecimalInputTextWatcher(int integers, int decimals) {
         mPattern = Pattern.compile("^[0-9]{0," + integers + "}+(\\.[0-9]{0," + decimals + "})?$");
     }
 
@@ -65,11 +61,10 @@ public class DecimalInputTextWatcher implements TextWatcher {
     }
 
     @Override
-    public void afterTextChanged(Editable s) {
-        Editable editable = mDecimalInputEt.getText();
-        String text = s.toString();
+    public void afterTextChanged(Editable editable) {
+        String text = editable.toString();
         if (TextUtils.isEmpty(text)) return;
-        if ((s.length() > 1) && (s.charAt(0) == '0') && s.charAt(1) != '.') {   //删除整数首位的“0”
+        if ((editable.length() > 1) && (editable.charAt(0) == '0') && editable.charAt(1) != '.') {   //删除整数首位的“0”
             editable.delete(0, 1);
             return;
         }
